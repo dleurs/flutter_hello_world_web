@@ -27,5 +27,5 @@ jobs:
     - run: git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/dleurs/flutter_hello_world_web.git
     - run: git checkout -b gh-pages
     - run: git add .
-    - run: git commit -m "Updated docs"
+    - run: git commit -m "Updated docs" --allow-empty
     - run: git push --force secure-origin gh-pages
