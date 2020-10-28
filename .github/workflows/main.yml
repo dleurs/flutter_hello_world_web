@@ -11,9 +11,9 @@ jobs:
       with:
         java-version: '12.x'
     - uses: subosito/flutter-action@v1
-      #with:
-        #flutter-version: '1.23.x'
-        #channel: 'beta' # Currently you have to use beta channel for Flutter web.
+      with:
+        flutter-version: '1.12.x'
+        channel: 'beta' # Currently you have to use beta channel for Flutter web.
     - name: Flutter version
       run: flutter --version
       working-directory: ./example
