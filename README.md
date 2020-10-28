@@ -36,6 +36,7 @@ jobs:
     - run: flutter packages get
     - run: flutter build web
     - run: cd build/web
+    - run: ls
     - run: git init
     - run: git config user.name  "CI"
     - run: git config user.email "flutter-ci@github.com"
