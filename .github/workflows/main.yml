@@ -17,10 +17,11 @@ jobs:
       with:
         #flutter-version: '1.12.x'
         channel: 'beta' # Currently you have to use beta channel for Flutter web.
-    - run: flutter upgrade
+    - run: flutter upgrade # You also get the flutter version
     - run: flutter config --enable-web
     - run: flutter packages get
     - run: flutter build web
+    - run: cd build/web
     - run: git init
     - run: git config user.name  "CI"
     - run: git config user.email "flutter-ci@github.com"
