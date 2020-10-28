@@ -24,9 +24,9 @@ jobs:
     - uses: actions/setup-java@v1
       with:
         java-version: '12.x'
-    - uses: subosito/flutter-action@v1
+    - uses: subosito/flutter-action@v1.4.1
       with:
-        flutter-version: '1.12.x' # you can use 1.12
+        flutter-version: '1.23.0-18.1.pre'
         channel: 'beta' # Currently you have to use beta channel for Flutter web.
     - name: Upgrades flutter
       run: flutter upgrade
