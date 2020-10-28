@@ -35,8 +35,10 @@ jobs:
     - run: flutter config --enable-web
     - run: flutter packages get
     - run: flutter build web
-    - run: cd build/web
     - run: ls
+    - run: cd ./build/web
+    - run: ls
+    - run: pwd
     - run: git init
     - run: git config user.name  "CI"
     - run: git config user.email "flutter-ci@github.com"
