@@ -1,17 +1,3 @@
-# Hello World flutter web
-
-Following this guide :<br/>
-https://medium.com/@zonble/use-github-pages-to-host-your-flutter-web-app-as-an-example-of-your-flutter-package-cb7b5b726eb1
-
-1. Generate a github access token in https://github.com/settings/tokens
-2. Add this token in your project, in YourProject > Settings > Secrets. This secret should be called ACCESS_TOKEN
-3. Create .github/workflows/workflow.yml and paste. Please replace [YOUR_USER_NAME] and [YOUR_REPO_NAME]
-```bash
-mkdir .github;
-mkdir .github/workflow;
-touch .github/workflows/workflow.yml;
-```
-```yaml
 name: Flutter Web
 
 on: [push]
@@ -51,4 +37,3 @@ jobs:
         git add .
         git commit -m "Updated docs"
         git push --force secure-origin gh-pages
-```
