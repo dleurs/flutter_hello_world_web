@@ -14,7 +14,10 @@ touch .github/workflows/workflow.yml;
 ```yaml
 name: Flutter Web
 
-on: [push]
+on:
+  push:
+    branches:
+    - master
 
 jobs:
   build:
@@ -24,34 +27,20 @@ jobs:
     - uses: actions/setup-java@v1
       with:
         java-version: '12.x'
-    - uses: subosito/flutter-action@v1.4.1
+    - uses: subosito/flutter-action@v1
       with:
-        #flutter-version: '1.23.x'
+        #flutter-version: '1.12.x'
         channel: 'beta' # Currently you have to use beta channel for Flutter web.
-    - name: Flutter version
-      run: flutter --version
-      working-directory: ./example
-    - name: Upgrades flutter
-      run: flutter upgrade
-      working-directory: ./example
-    - name: Enable Web
-      run: flutter config --enable-web
-      working-directory: ./example
-    - name: Install dependencies
-      run: flutter packages get
-      working-directory: ./example
-    - name: Build Web
-      run: flutter build web
-      working-directory: ./example
-    - name: Deploy
-      run: |
-        cd example/build/web
-        git init
-        git config user.name  "CI"
-        git config user.email "flutter-ci@github.com"
-        git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/dleurs/flutter_hello_world_web.git
-        git checkout -b gh-pages
-        git add .
-        git commit -m "Updated docs"
-        git push --force secure-origin gh-pages
+    - run: flutter upgrade # You also get the flutter version
+    - run: flutter config --enable-web
+    - run: flutter packages get
+    - run: flutter build web
+    - run: git init
+    - run: git config user.name  "CI"
+    - run: git config user.email "flutter-ci@github.com"
+    - run: git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/dleurs/flutter_hello_world_web.git
+    - run: git checkout -b gh-pages
+    - run: git add .
+    - run: git commit -m "Updated docs" --allow-empty
+    - run: git push --force secure-origin gh-pages
 ```
