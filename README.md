@@ -8,7 +8,7 @@ https://medium.com/@zonble/use-github-pages-to-host-your-flutter-web-app-as-an-e
 3. Create .github/workflows/workflow.yml and paste. Please replace [YOUR_USER_NAME] and [YOUR_REPO_NAME]
 ```bash
 mkdir .github;
-mkdir .github/workflow;
+mkdir .github/workflows;
 touch .github/workflows/workflow.yml;
 ```
 ```yaml
