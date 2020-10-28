@@ -17,18 +17,15 @@ jobs:
       with:
         #flutter-version: '1.12.x'
         channel: 'beta' # Currently you have to use beta channel for Flutter web.
-    - run: flutter --version
     - run: flutter upgrade
     - run: flutter config --enable-web
     - run: flutter packages get
     - run: flutter build web
-    - run: ls
-    - run: |
-        git init
-        git config user.name  "CI"
-        git config user.email "flutter-ci@github.com"
-        git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/dleurs/flutter_hello_world_web.git
-        git checkout -b gh-pages
-        git add .
-        git commit -m "Updated docs"
-        git push --force secure-origin gh-pages
+    - run: git init
+    - run: git config user.name  "CI"
+    - run: git config user.email "flutter-ci@github.com"
+    - run: git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/dleurs/flutter_hello_world_web.git
+    - run: git checkout -b gh-pages
+    - run: git add .
+    - run: git commit -m "Updated docs"
+    - run: git push --force secure-origin gh-pages
