@@ -24,6 +24,15 @@ jobs:
     - run: pwd
     - run: ls
       working-directory: /home/runner/work/flutter_hello_world_web/flutter_hello_world_web/build/web
+    
+    # Bug https://github.com/flutter/flutter/issues/69287
+    - run: cat index.html
+      working-directory: /home/runner/work/flutter_hello_world_web/flutter_hello_world_web/build/web
+    - run: sed -i '/base href/d' index.html #For MacOS : sed -i '' '/base href/d' index.html
+      working-directory: /home/runner/work/flutter_hello_world_web/flutter_hello_world_web/build/web
+    - run: cat index.html
+      working-directory: /home/runner/work/flutter_hello_world_web/flutter_hello_world_web/build/web
+
     - run: git init
       working-directory: /home/runner/work/flutter_hello_world_web/flutter_hello_world_web/build/web
     - run: git config user.name  "CI"
