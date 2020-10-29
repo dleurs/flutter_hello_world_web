@@ -34,24 +34,23 @@ jobs:
     - run: flutter upgrade # You also get the flutter version
     - run: flutter config --enable-web
     - run: flutter packages get
-    - run: flutter build web    
-    - run: ls
-      working-directory: /home/runner/work/flutter_hello_world_web/flutter_hello_world_web/build/web
+    - run: flutter build web
+    - run: pwd
     - run: git init
-      working-directory: /home/runner/work/flutter_hello_world_web/flutter_hello_world_web/build/web
+      working-directory: /home/runner/work/[YOUR_REPO_NAME]/[YOUR_REPO_NAME]
     - run: git config user.name  "CI"
-      working-directory: /home/runner/work/flutter_hello_world_web/flutter_hello_world_web/build/web
+      working-directory: /home/runner/work/[YOUR_REPO_NAME]/[YOUR_REPO_NAME]
     - run: git config user.email "flutter-ci@github.com"
-      working-directory: /home/runner/work/flutter_hello_world_web/flutter_hello_world_web/build/web
-    - run: git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/dleurs/flutter_hello_world_web.git
-      working-directory: /home/runner/work/flutter_hello_world_web/flutter_hello_world_web/build/web
+      working-directory: /home/runner/work/[YOUR_REPO_NAME]/[YOUR_REPO_NAME]
+    - run: git remote add secure-origin https://${{ secrets.ACCESS_TOKEN }}@github.com/dleurs/[YOUR_REPO_NAME].git
+      working-directory: /home/runner/work/[YOUR_REPO_NAME]/[YOUR_REPO_NAME]
     - run: git checkout -b gh-pages
-      working-directory: /home/runner/work/flutter_hello_world_web/flutter_hello_world_web/build/web
+      working-directory: /home/runner/work/[YOUR_REPO_NAME]/[YOUR_REPO_NAME]
     - run: git add .
-      working-directory: /home/runner/work/flutter_hello_world_web/flutter_hello_world_web/build/web
+      working-directory: /home/runner/work/[YOUR_REPO_NAME]/[YOUR_REPO_NAME]
     - run: git commit -m "Updated docs" --allow-empty
-      working-directory: /home/runner/work/flutter_hello_world_web/flutter_hello_world_web/build/web
+      working-directory: /home/runner/work/[YOUR_REPO_NAME]/[YOUR_REPO_NAME]
     - run: git push --force secure-origin gh-pages
-      working-directory: /home/runner/work/flutter_hello_world_web/flutter_hello_world_web/build/web
+      working-directory: /home/runner/work/[YOUR_REPO_NAME]/[YOUR_REPO_NAME]
 ```
 4. YourProject > Settings > Option > Github Pages with branch gh-pages
